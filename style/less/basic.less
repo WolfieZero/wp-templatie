@@ -1,0 +1,28 @@
+//*****************************************************************************
+// Basic site style - /style/css/basic.css
+// This file is for older browsers mainly (a la IE6 and below) but can be used
+// any system that only type needs to be displayed.
+//*****************************************************************************
+
+// Library (required)
+
+@import 'lib/variables';			// Variables for the site
+@import 'lib/functions';			// Load in functions
+
+
+// Set default styles
+
+@import 'element/init';				// low-level defaults
+@import 'element/type';				// Typography
+@import 'element/code';				// Display of code
+@import 'element/nav';				// Nav styles
+@import 'element/form';				// Form styles
+@import 'element/table';			// Table styles
+@import 'element/non-semantics';	// For JavaScript style & naughty moments
+@import 'element/images';			// Images on the site
+
+
+body {
+	width: 85%;
+	margin: 0 auto;
+}

@@ -1,0 +1,65 @@
+//*****************************************************************************
+// 
+// non-semantics.less 
+// ------------------
+// 
+// These should be use with JS and not in the raw HTML; this is why there is
+// no clearfix class as we have a LESS function for that: .clearfix();
+// 
+//*****************************************************************************
+
+/******************************************************************************
+ * You can't see it but it's layout is still there.
+ *****************************************************************************/
+.invisible {
+	visibility: hidden;
+}
+
+/******************************************************************************
+ * Remove the element completely from screen and readers
+ *****************************************************************************/
+.hide {
+	display: none !important;
+	visibility: hidden;
+}
+
+/******************************************************************************
+ * Removes it from view, but still readable by screen readers
+ *****************************************************************************/
+.hide-but-read {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 1px;
+}
+
+.full {
+	width: 100%;
+}
+
+/******************************************************************************
+ * Alignments
+ *****************************************************************************/
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+img.left {
+	float: left;
+	text-align: auto;
+}
+img.right {
+	float: right;
+	text-align: auto;
+}

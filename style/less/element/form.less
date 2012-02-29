@@ -1,0 +1,256 @@
+// ****************************************************************************
+// 
+// form.less 
+// ---------
+// 
+// All elements to do with forms are in here as well as some cool buttons
+// styles I took from Twitter's Bootstrap and then did them again.
+//  
+// ****************************************************************************
+
+/******************************************************************************
+ * Form Styles
+ *****************************************************************************/
+
+form,
+fieldset,
+legend,
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+legend {
+	*margin-left: -7px; // Corrects alignment displayed oddly in IE6/7
+}
+
+
+// 1. Corrects font size not being inherited in all browsers
+// 2. Improves appearance and consistency in all browsers
+
+button,
+input,
+select,
+textarea,
+label {
+	font-size: 100%; // 1
+	vertical-align: baseline; // 2
+	*vertical-align: middle; // 2
+	line-height: normal;
+}
+
+// 1. Improves usability and consistency of cursor style between image-type 'input' and others
+// 2. Addresses box sizing set to content-box in IE8/9
+// 3. Addresses excess padding in IE8/9
+// 4. Removes the boarder set by input{}
+
+input[type='checkbox'],
+input[type='radio'] {
+	cursor: pointer; // 1
+	box-sizing: border-box; // 2
+	padding: 0; // 3
+	border: 0; // 4
+	width: auto;
+	background: transparent;
+
+	.box-shadow(none);
+
+	&:focus {
+		.box-shadow(none);
+	}
+}
+
+
+// 1. Addresses appearance set to searchfield in S5, Chrome
+// 2. Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof)
+
+input[type='search'] {
+	-webkit-appearance: textfield; // 1
+	-webkit-box-sizing: content-box; // 2
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+
+// Corrects inner padding displayed oddly in S5, Chrome on OSX
+
+input[type='search']::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+
+// 1. Removes default vertical scrollbar in IE6/7/8/9
+// 2. Improves readability and alignment in all browsers
+
+textarea {
+	overflow: auto; // 1
+	vertical-align: top; // 2
+	width: @dTextareaWidth;
+}
+
+input {
+	height: @dLineHeight;
+	width: @dInputWidth;
+}
+
+input,
+textarea,
+select {
+	display: inline-block;
+	padding: 2px;
+	margin: 0;
+	line-height: @dLineHeight;
+	color: @dFontColor;
+	border: 1px solid #BBB;
+
+	.transition(all linear .3s);
+	.box-shadow(inset 0 2px 7px rgba(0,0,0,.2));
+	.rounded(2px);
+	.font-size();
+
+	&.error {
+		.box-shadow(inset 0 20px 20px rgba(150,0,0,.1));
+	}
+
+	&:focus {
+		outline: 0;
+		border-color: #BBB;
+
+		@shadow: inset 0 0 0, 0 0 5px rgba(100,100,100,.5);
+		.box-shadow(@shadow);
+
+		&.error {
+			@shadow: inset 0 1px 3px rgba(200,0,0,.1), 0 0 8px rgba(200,0,0,.7);
+			.box-shadow(@shadow);
+		}
+	}
+}
+label {
+	display: inline-block;
+	width: auto;
+	cursor: pointer;
+	height: @dLineHeight;
+	line-height: @dLineHeight;
+	input {
+		float: left;
+		margin: auto 5px;
+	}
+}
+
+select {
+	width: @dInputWidth;
+	height: @dFontSize + 12px;
+	line-height: @dFontSize + 12px;
+	padding: 4px;
+	&[multiple='multiple'] {
+		height: inherit;
+	}
+}
+ 
+*[disabled],
+*[readonly] {
+	background-color: #F5F5F5;
+	border-color: #DDD;
+	cursor: not-allowed;
+	color: lighten(@dFontColor, 15%);
+}
+
+
+/******************************************************************************
+ * Button Styles
+ *****************************************************************************/
+
+button,
+input[type='button'], 
+input[type='reset'], 
+input[type='submit'] {
+	-webkit-appearance: button;
+}
+
+.btn,
+button,
+input[type='submit'],
+input[type='reset'] {
+	@shadow: inset 0 6px 6px rgba(255,255,255,.35);
+
+	text-decoration: none; // used for a.btn references
+	*overflow: visible;
+	cursor: pointer;
+	display: inline-block;
+	padding: 2px 14px;
+	margin: 0;
+	font-weight: 700;
+	text-shadow: 0 1px 1px rgba(255,255,255,.7);
+	color: @dBtnFontColor;
+	border: 1px solid @dBtnBorderColor;
+	width: @dBtnWidth;
+	height: auto;
+	
+	.box-shadow(@shadow);
+	.transition(none);
+	.rounded(3px);
+	#gradient > .vertical(@dBtnColor, darken(@dBtnColor, 20%));
+	
+
+	&:hover {
+		@shadow: 0 0 6px rgba(0,0,0,.1), inset 0 6px 6px rgba(255,255,255,.1);
+
+		text-decoration: none;
+		color: @dBtnFontColor;
+
+		.box-shadow(@shadow);
+	}
+
+	
+	&:active {
+		background: darken(@dBtnColor, 10%);
+		.box-shadow(inset 0 5px 15px rgba(0,0,0,.2));
+	}
+	
+	// Primary Button Type
+	&.primary {
+		color: @pBtnFontColor;
+		text-shadow: -1px -1px 1px rgba(0,0,0,.3);
+		border-color: @pBtnBorderColor;
+
+		#gradient > .vertical(@pBtnColor, darken(@pBtnColor, 20%));
+		&:active {
+			background: darken(@pBtnColor, 10%);
+		}
+	}
+
+	
+	&.disabled {
+		cursor: default;
+		background-image: none;
+		.reset-filter();
+		.opacity(65);
+		.box-shadow(none);
+	}
+
+	
+	&[disabled] {
+		// disabled pseudo can't be included with .disabled
+		// def because IE8 and below will drop it ;_;
+		cursor: default;
+		background-image: none;
+		.reset-filter();
+		.opacity(65);
+		.box-shadow(none);
+	}
+	
+	
+	// Super jank hack for removing border-radius from IE9 so we can keep filter gradients on alerts and buttons
+	:root & {
+		border-radius: 0 \0;
+	}
+
+	
+	// Help Firefox not be a jerk about adding extra padding to buttons
+	&::-moz-focus-inner {
+		padding: 0;
+		border: 0;
+	}
+}

@@ -1,0 +1,677 @@
+/******************************************************************************
+ * HTML5 Elements
+ *****************************************************************************/
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) {
+  display: none;
+}
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+[hidden] {
+  display: none;
+}
+/******************************************************************************
+ * Base
+ *****************************************************************************/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #fefefe;
+}
+/******************************************************************************
+ * Select Colour
+ *****************************************************************************/
+::-moz-selection {
+  background: #f5f3b6;
+  color: #555555;
+  text-shadow: none;
+}
+::selection {
+  background: #f5f3b6;
+  color: #555555;
+  text-shadow: none;
+}
+/******************************************************************************
+ * Embedded Content
+ *****************************************************************************/
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+/******************************************************************************
+ * Figures
+ *****************************************************************************/
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+figure {
+  margin: 0;
+}
+/******************************************************************************
+ * Type
+ *****************************************************************************/
+html {
+  font-size: 112.5%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 112.5%;
+  -ms-text-size-adjust: 112.5%;
+  line-height: 1.5em;
+  color: #404040;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+/******************************************************************************
+ * Headers
+ *****************************************************************************/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  padding: 10px 0;
+  margin: 0;
+  line-height: 1.5em;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+  color: #a6a6a6;
+}
+h1 {
+  font-size: 76px;
+  font-size: 4.222222222222222rem;
+}
+h2 {
+  font-size: 47px;
+  font-size: 2.611111111111111rem;
+}
+h3 {
+  font-size: 29px;
+  font-size: 1.6111111111111112rem;
+}
+h4 {
+  font-size: 18px;
+  font-size: 1rem;
+}
+p {
+  padding: 5px 0;
+  margin: 0;
+  text-align: justify;
+  line-height: 1.5em;
+  font-size: 18px;
+  font-size: 1rem;
+}
+hr {
+  border: 0;
+  margin: 20px auto;
+  border-bottom: 1px solid #aaaaaa;
+  width: 50%;
+}
+abbr[title] {
+  border-bottom: 1px dotted #a6a6a6;
+}
+/*
+ * Addresses style set to 'bolder' in FF3/4, S4/5, Chrome
+*/
+b,
+strong {
+  font-weight: 700;
+}
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+/* 1 */
+q {
+  quotes: none;
+}
+/* 2 */
+q:before,
+q:after {
+  content: '';
+}
+blockquote {
+  margin: 1em 1em 1em 4em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 100;
+  color: #8d8d8d;
+}
+blockquote p {
+  font-size: 20px;
+  font-size: 1.1111111111111112rem;
+}
+blockquote:before {
+  color: #737373;
+  content: '“';
+  margin-top: 18px;
+  margin-left: -0.75em;
+  float: left;
+  font-size: 75px;
+  font-size: 4.166666666666667rem;
+}
+blockquote cite {
+  display: block;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-align: right;
+  font-size: 16px;
+  font-size: 0.8888888888888888rem;
+}
+small {
+  font-size: 75%;
+}
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/******************************************************************************
+ * List
+ *****************************************************************************/
+ul,
+ol {
+  margin: 0;
+  padding: 0 0 0 10px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin: 0;
+}
+dl {
+  margin: 0;
+  padding: 0;
+}
+li,
+dt {
+  line-height: 1.5em;
+  margin: 10px 0 10px 20px;
+}
+dt {
+  padding-left: 20px;
+}
+dd {
+  font-weight: 700;
+  margin: 5px 0 10px;
+}
+/******************************************************************************
+ * Link
+ *****************************************************************************/
+a {
+  color: #cc0066;
+}
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+a:hover,
+a:active {
+  outline: 0;
+  color: #cc0099;
+}
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+a:focus {
+  outline: thin dotted;
+}
+/******************************************************************************
+ * Code
+ *****************************************************************************/
+code,
+pre,
+kbd,
+samp {
+  font-family: 'Bitstream Vera Sans Mono', Courier, monospace;
+  font-size: 18px;
+  font-size: 1rem;
+}
+code {
+  background-color: #DDD;
+  color: rgba(0, 0, 0, 0.75);
+  padding: 1px 3px;
+}
+pre {
+  background: #FEFEFE;
+  color: #556270;
+  display: block;
+  padding: 10px;
+  margin: 5px auto;
+  line-height: 1.5em;
+  border: 1px solid #CCC;
+  width: 95%;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav li {
+  margin: 0;
+}
+/******************************************************************************
+ * Form Styles
+ *****************************************************************************/
+form,
+fieldset,
+legend,
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+legend {
+  *margin-left: -7px;
+}
+button,
+input,
+select,
+textarea,
+label {
+  font-size: 100%;
+  vertical-align: baseline;
+  *vertical-align: middle;
+  line-height: normal;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  width: auto;
+  background: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+input[type='checkbox']:focus,
+input[type='radio']:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+input[type='search'] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  width: 80%;
+}
+input {
+  height: 1.5em;
+  width: 80%;
+}
+input,
+textarea,
+select {
+  display: inline-block;
+  padding: 2px;
+  margin: 0;
+  line-height: 1.5em;
+  color: #404040;
+  border: 1px solid #BBB;
+  -webkit-transition: all linear 0.3s;
+  -moz-transition: all linear 0.3s;
+  -ms-transition: all linear 0.3s;
+  -o-transition: all linear 0.3s;
+  transition: all linear 0.3s;
+  -webkit-box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 2px 7px rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 2px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 2px;
+  -moz-background-clip: padding;
+  border-radius: 2px;
+  background-clip: padding-box;
+  font-size: 18px;
+  font-size: 1rem;
+}
+input.error,
+textarea.error,
+select.error {
+  -webkit-box-shadow: inset 0 20px 20px rgba(150, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 20px 20px rgba(150, 0, 0, 0.1);
+  box-shadow: inset 0 20px 20px rgba(150, 0, 0, 0.1);
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 0;
+  border-color: #BBB;
+  -webkit-box-shadow: inset 0 0 0, 0 0 5px rgba(100, 100, 100, 0.5);
+  -moz-box-shadow: inset 0 0 0, 0 0 5px rgba(100, 100, 100, 0.5);
+  box-shadow: inset 0 0 0, 0 0 5px rgba(100, 100, 100, 0.5);
+}
+input:focus.error,
+textarea:focus.error,
+select:focus.error {
+  -webkit-box-shadow: inset 0 1px 3px rgba(200, 0, 0, 0.1), 0 0 8px rgba(200, 0, 0, 0.7);
+  -moz-box-shadow: inset 0 1px 3px rgba(200, 0, 0, 0.1), 0 0 8px rgba(200, 0, 0, 0.7);
+  box-shadow: inset 0 1px 3px rgba(200, 0, 0, 0.1), 0 0 8px rgba(200, 0, 0, 0.7);
+}
+label {
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+  height: 1.5em;
+  line-height: 1.5em;
+}
+label input {
+  float: left;
+  margin: auto 5px;
+}
+select {
+  width: 80%;
+  height: 30px;
+  line-height: 30px;
+  padding: 4px;
+}
+select[multiple='multiple'] {
+  height: inherit;
+}
+*[disabled],
+*[readonly] {
+  background-color: #F5F5F5;
+  border-color: #DDD;
+  cursor: not-allowed;
+  color: #666666;
+}
+/******************************************************************************
+ * Button Styles
+ *****************************************************************************/
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  -webkit-appearance: button;
+}
+.btn,
+button,
+input[type='submit'],
+input[type='reset'] {
+  text-decoration: none;
+  *overflow: visible;
+  cursor: pointer;
+  display: inline-block;
+  padding: 2px 14px;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);
+  color: #444444;
+  border: 1px solid #5e5e5e;
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: inset 0 6px 6px rgba(255, 255, 255, 0.35);
+  -moz-box-shadow: inset 0 6px 6px rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 6px 6px rgba(255, 255, 255, 0.35);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  -webkit-border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 3px;
+  -moz-background-clip: padding;
+  border-radius: 3px;
+  background-clip: padding-box;
+  background-color: #aaaaaa;
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient(top, #dddddd, #aaaaaa);
+  background-image: -moz-linear-gradient(top, #dddddd, #aaaaaa);
+  background-image: -ms-linear-gradient(top, #dddddd, #aaaaaa);
+  background-image: -o-linear-gradient(top, #dddddd, #aaaaaa);
+  background-image: linear-gradient(top, #dddddd, #aaaaaa);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#aaaaaa', GradientType=0);
+}
+.btn:hover,
+button:hover,
+input[type='submit']:hover,
+input[type='reset']:hover {
+  text-decoration: none;
+  color: #444444;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1), inset 0 6px 6px rgba(255, 255, 255, 0.1);
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1), inset 0 6px 6px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1), inset 0 6px 6px rgba(255, 255, 255, 0.1);
+}
+.btn:active,
+button:active,
+input[type='submit']:active,
+input[type='reset']:active {
+  background: #c4c4c4;
+  -webkit-box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.btn.primary,
+button.primary,
+input[type='submit'].primary,
+input[type='reset'].primary {
+  color: #fefefe;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.3);
+  border-color: #152300;
+  background-color: #345501;
+  background-repeat: repeat-x;
+  background-image: -webkit-linear-gradient(top, #72ba02, #345501);
+  background-image: -moz-linear-gradient(top, #72ba02, #345501);
+  background-image: -ms-linear-gradient(top, #72ba02, #345501);
+  background-image: -o-linear-gradient(top, #72ba02, #345501);
+  background-image: linear-gradient(top, #72ba02, #345501);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#72ba02', endColorstr='#345501', GradientType=0);
+}
+.btn.primary:active,
+button.primary:active,
+input[type='submit'].primary:active,
+input[type='reset'].primary:active {
+  background: #538801;
+}
+.btn.disabled,
+button.disabled,
+input[type='submit'].disabled,
+input[type='reset'].disabled {
+  cursor: default;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  -webkit-opacity: 0.65;
+  -moz-opacity: 0.65;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.btn[disabled],
+button[disabled],
+input[type='submit'][disabled],
+input[type='reset'][disabled] {
+  cursor: default;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  -webkit-opacity: 0.65;
+  -moz-opacity: 0.65;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+:root .btn,
+:root button,
+:root input[type='submit'],
+:root input[type='reset'] {
+  border-radius: 0 \0;
+}
+.btn::-moz-focus-inner,
+button::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+/******************************************************************************
+ * Table
+ *****************************************************************************/
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #404040;
+  margin: 0.75em auto;
+  border: 1px solid #c9c9c9;
+}
+th,
+td {
+  padding: 5px;
+  border-top: 1px solid #c9c9c9;
+  border-left: 1px solid #c9c9c9;
+  line-height: 1.5em;
+}
+tr:first-child th,
+tr:first-child td {
+  border-top: 0;
+}
+th:first-child,
+td:first-child {
+  border-left: 0;
+}
+thead td,
+thead th {
+  background: #e0e0e0;
+  border-bottom: 1px solid #c9c9c9;
+}
+tbody tr {
+  background: #f9f9f9;
+}
+tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+tbody tr:hover {
+  background: #eaeaea;
+}
+tbody th {
+  text-align: right;
+}
+/******************************************************************************
+ * You can't see it but it's layout is still there.
+ *****************************************************************************/
+.invisible {
+  visibility: hidden;
+}
+/******************************************************************************
+ * Remove the element completely from screen and readers
+ *****************************************************************************/
+.hide {
+  display: none !important;
+  visibility: hidden;
+}
+/******************************************************************************
+ * Removes it from view, but still readable by screen readers
+ *****************************************************************************/
+.hide-but-read {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.full {
+  width: 100%;
+}
+/******************************************************************************
+ * Alignments
+ *****************************************************************************/
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+img.left {
+  float: left;
+  text-align: auto;
+}
+img.right {
+  float: right;
+  text-align: auto;
+}
+body {
+  width: 85%;
+  margin: 0 auto;
+}

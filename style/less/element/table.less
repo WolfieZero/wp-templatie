@@ -1,0 +1,59 @@
+//*****************************************************************************
+// 
+// table.less
+// ----------
+// 
+// Because people still use these to display tabular information!
+// 
+//*****************************************************************************
+
+/******************************************************************************
+ * Table
+ *****************************************************************************/
+
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+	color: @dFontColor;
+	margin: (@dLineHeight / 2) auto;
+	border: @tBorderStyle; 
+}
+
+th, td {
+	padding: (@baseline / 4);
+	border-top: @tBorderStyle; 
+	border-left: @tBorderStyle; 
+	line-height: @dLineHeight;
+}
+
+tr:first-child th, 
+tr:first-child td {
+	border-top: 0;
+}
+
+th:first-child, 
+td:first-child {
+	border-left: 0;
+}
+
+thead {
+	td, th {
+		background: @tHeadColor;
+		border-bottom: @tBorderStyle; 
+	}
+}
+
+tbody {
+	tr {
+		background: @tOddColor;
+	}
+	tr:nth-child(even) {
+		background: @tEvenColor;
+	}
+	tr:hover {
+		background: @tHoverColor;
+	}
+	th {
+		text-align: right;
+	}
+}

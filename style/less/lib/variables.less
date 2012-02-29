@@ -1,0 +1,94 @@
+//*****************************************************************************
+// Various variables
+//*****************************************************************************
+
+// Define font families
+// ----------------------------------------------------------------------------
+
+@dSerifFamily:			Georgia, 'Times New Roman', Times, serif;
+@dSansSerifFamily:		'Helvetica Neue', Helvetica, Arial, sans-serif;
+@dMonospacedFamily:		'Bitstream Vera Sans Mono', Courier, monospace;
+
+
+// Define page properties
+// ----------------------------------------------------------------------------
+
+@dBackgroundColor:		#FEFEFE;					// default background colour
+
+
+// Define Default Typography
+// ----------------------------------------------------------------------------
+
+@scale:					1.618;						// the golden scale ~ http://24ways.org/2011/composing-the-new-canon
+@dLineHeight:			1.5em;						// default line height
+
+@dFontFamily:			@dSansSerifFamily;
+@dHeaderFamily:			@dSansSerifFamily;
+@dCodeFamily:			@dMonospacedFamily;
+@dBlockquoteFamily:		@dSerifFamily;
+@dCiteFamily:			@dSansSerifFamily;
+
+@dFontSize:				18;							// default font size (px)
+@dFontColor: 			#404040;					// default font colour
+
+@dHeaderWeight:			400;						// weight of header (typically; 400=normal & 700=bold)
+@dHeaderColor:			#000;						// default header font colour
+
+@codeFontSize:			16;							// code font size (px)
+@dCodeSize:				18;							// default font size of code (px)
+@baseFontSize:			(@dFontSize / 16 * 100%);	// used for calculating the default font size
+
+@hrLineStyle:			1px solid #AAA;				// horizontal rule style
+@hrWidth:				50%;						// horizontal rule width
+
+@bqtFontSize:			20;							// blockquote text font size
+@bqcFontSize:			16;							// blockquote cite font size
+@dqtColor:				lighten(@dFontColor, 30%);	// blockquote text colour
+@dqcColor:				lighten(@dFontColor, 20%);	// blockquote cite colour
+	
+
+// Table Properties
+// ----------------------------------------------------------------------------
+
+@tBorderStyle:			1px solid #C9C9C9;			// table border colour
+@tHeadColor:			#E0E0E0;					// table header colour (within <thead></thead>)
+@tOddColor:				#F9F9F9;					// odd row colour
+@tEvenColor:			#F2F2F2;					// even row colour
+@tHoverColor:			#EAEAEA;					// hover row colour
+
+
+// Forms
+// ----------------------------------------------------------------------------
+
+@dInputWidth:			80%;						// default width of form input fields
+@dTextareaWidth:		80%;						// default width of textarea
+@dLabelWidth:			20%;						// default width of label
+@dBtnWidth:				auto;						// default width of button fields (not just forms)
+@dBtnColor:				#DDD;						// default button colour
+@dBtnFontColor:			#444;						// default button font colour
+@dBtnBorderColor:		darken(@dBtnColor, 50%);	// default button border color
+@pBtnColor:				#72BA02;					// primary button colour
+@pBtnFontColor:			#FEFEFE;					// primary button font colour
+@pBtnBorderColor:		darken(@pBtnColor, 30%);	// primary button border color
+
+
+// Size Definitions
+// ----------------------------------------------------------------------------
+
+@baseline:				20px;						// used for base of margins and paddings for even content layout
+
+
+// Define Link Colours
+// ----------------------------------------------------------------------------
+
+@dLinkColor: 			#C06;						// default link colour
+@dLinkHoverColor:		#C09;						// default link hover colour
+
+
+// Define Everything Else
+// ----------------------------------------------------------------------------
+
+@spriteImg:				'spite.png';				// the file name of the main sprite image
+@imgDir: 				'../../img/';				// location of image files
+@selectBG:				#F5F3B6;					// colour of mouse heighlighted content background
+@selectColor:			#555;						// colour of mouse heighlighted content font

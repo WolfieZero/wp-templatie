@@ -1,0 +1,114 @@
+//*****************************************************************************
+// 
+// init.less 
+// ---------
+// 
+// This is the base normalise.css file, but elements have been removed and
+// placed into relevant /element/ files so we aren't calling items we don't
+// need (basically the whole purpose of this framework!)
+// 
+// Certain HTML5 elements are kept here for ease
+// 
+//*****************************************************************************
+
+/******************************************************************************
+ * HTML5 Elements
+ *****************************************************************************/
+
+/*
+ * Corrects block display not defined in IE6/7/8/9 & FF3
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section{
+	display: block;
+}
+
+/*
+ * Corrects inline-block display not defined in IE6/7/8/9 & FF3
+ */
+audio,
+canvas,
+video {
+	display: inline-block;
+	*display: inline;
+    *zoom: 1;
+}
+
+/*
+ * Prevents modern browsers from displaying 'audio' without controls
+ */
+audio:not([controls]) {
+    display: none;
+}
+
+/*
+ * Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4
+ * Known issue: no IE6 support
+ */
+[hidden] {
+    display: none;
+}
+
+
+/******************************************************************************
+ * Base
+ *****************************************************************************/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: @dBackgroundColor;
+}
+
+
+/******************************************************************************
+ * Select Colour
+ *****************************************************************************/
+
+::-moz-selection{
+    background: @selectBG;
+    color: @selectColor;
+    text-shadow:none;
+}
+
+::selection{
+    background: @selectBG;
+    color: @selectColor;
+    text-shadow:none;
+}
+
+
+/******************************************************************************
+ * Embedded Content
+ *****************************************************************************/
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic; // http://j.mp/yQpqFZ
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+
+/******************************************************************************
+ * Figures
+ *****************************************************************************/
+
+/*
+ * Addresses margin not present in IE6/7/8/9, S5, O11
+ */
+figure {
+    margin: 0;
+}

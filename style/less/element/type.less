@@ -1,0 +1,218 @@
+//*****************************************************************************
+// 
+// type.less 
+// ---------
+// 
+// All the p tags, the header tags, the list tags and such like. Anything that
+// is text based.
+// 
+//*****************************************************************************
+
+/******************************************************************************
+ * Type
+ *****************************************************************************/
+
+html {
+	@baseFontSize: (@dFontSize / 16 * 100%);
+	font-size: @baseFontSize;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: @baseFontSize;
+	-ms-text-size-adjust: @baseFontSize;
+	line-height: @dLineHeight;
+	color: @dFontColor;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: @dFontFamily;
+}
+
+
+/******************************************************************************
+ * Headers
+ *****************************************************************************/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: @dHeaderFamily;
+	font-weight: @dHeaderWeight;
+	padding: (@baseline / 2) 0;
+	margin: 0;
+	line-height: @dLineHeight;
+	small {
+		color: lighten(@dHeaderColor, 65%);
+	}
+}
+h1 {
+	@font-size: round( round( round( @dFontSize * @scale ) * @scale ) * @scale );
+	.font-size(@font-size);
+}
+h2 {
+	@font-size: round( round( @dFontSize * @scale ) * @scale );
+	.font-size(@font-size);
+}
+h3 {
+	@font-size: round( @dFontSize * @scale );
+	.font-size(@font-size);
+}
+h4 {
+	.font-size();
+}
+
+p {
+	padding: (@baseline / 4) 0;
+	margin: 0;
+	text-align: justify;
+	line-height: @dLineHeight;
+	.font-size();
+}
+
+hr {
+	border: 0;
+	margin: @baseline auto;
+	border-bottom: @hrLineStyle;
+	width: @hrWidth;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted lighten(@dFontColor, 40%);
+}
+
+/*
+ * Addresses style set to 'bolder' in FF3/4, S4/5, Chrome
+*/
+
+b, 
+strong { 
+    font-weight: 700; 
+}
+
+/*
+ * 1. Addresses CSS quotes not supported in IE6/7
+ * 2. Addresses quote property not supported in S4
+ */
+
+/* 1 */
+
+q {
+    quotes: none;
+}
+
+/* 2 */
+
+q:before,
+q:after {
+    content: '';
+}
+
+blockquote {
+	margin: 1em 1em 1em 4em;
+	font-family: @dSerifFamily;
+	font-weight: 100;
+	color: lighten(@dFontColor, 30%);
+
+	p {
+		.font-size(@bqtFontSize);
+	}
+
+	&:before {
+		color: lighten(@dFontColor, 20%);
+		content: '“';
+		margin-top: 18px;
+		margin-left: -0.75em;
+		float: left;
+		.font-size(75);
+	}
+	cite {
+		display: block;
+		font-family: @dFontFamily;
+		text-align: right;
+		.font-size(@bqcFontSize);
+	}
+}
+
+small {
+    font-size: 75%;
+}
+
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+
+/******************************************************************************
+ * List
+ *****************************************************************************/
+
+ul,
+ol {
+	margin: 0;
+	padding: 0 0 0 (@baseline / 2);
+	ul,
+	ol {
+		margin: 0;
+	}
+}
+dl {
+	margin: 0;
+	padding: 0;
+}
+li,
+dt {
+	line-height: @dLineHeight;
+	margin: (@baseline / 2) 0 (@baseline / 2) @baseline;
+}
+
+dt {
+	padding-left: @baseline;
+}
+dd {
+	font-weight: 700;
+	margin: (@baseline / 4) 0 (@baseline / 2);
+}
+
+
+/******************************************************************************
+ * Link
+ *****************************************************************************/
+
+a {
+    color: @dLinkColor;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+a:hover,
+a:active {
+  outline: 0;
+  color: @dLinkHoverColor;
+}
+
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+
+a:focus {
+	outline: thin dotted;
+}
