@@ -1,3 +1,6 @@
+// CodeKit imports
+// @codekit-prepend "lib/functions.js"
+
 // Despite being at the end of the document, we want to make sure all DOM
 // element are loaded before excuting any JS
 $(document).ready(function() {

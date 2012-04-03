@@ -1,41 +1,61 @@
 <?php
-	
-	$siteTitle		= get_bloginfo('site-title');
-	$description 	= get_bloginfo('description');
-	$root			= get_bloginfo('template_url');
-	$titleSeperator	= ' - ';
+
+$siteTitle		= get_bloginfo('site-title');
+$description 	= get_bloginfo('description');
+$root			= get_bloginfo('template_url');
+$titleSeperator	= ' - ';
 
 ?><!doctype html>
-<!--[if lt IE 7]>	<html class="no-js ie lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr">	<![endif]-->
-<!--[if IE 7]>		<html class="no-js ie lt-ie10 lt-ie9 lt-ie8" lang="en" dir="ltr">			<![endif]-->
-<!--[if IE 8]>		<html class="no-js ie lt-ie10 lt-ie9" lang="en" dir="ltr">					<![endif]-->
-<!--[if IE 9]>		<html class="no-js ie lt-ie10" lang="en" dir="ltr">							<![endif]-->
+<!--[if lt IE 7]>	<html class="no-js ie lt-ie10 lt-ie9 lt-ie8 lt-ie7" <?php language_attributes(); ?>>	<![endif]-->
+<!--[if IE 7]>		<html class="no-js ie lt-ie10 lt-ie9 lt-ie8" <?php language_attributes(); ?>>			<![endif]-->
+<!--[if IE 8]>		<html class="no-js ie lt-ie10 lt-ie9" <?php language_attributes(); ?>>					<![endif]-->
+<!--[if IE 9]>		<html class="no-js ie lt-ie10" <?php language_attributes(); ?>>							<![endif]-->
 <!--[if gt IE 9]>
-	<!-->			<html class="no-js" lang="en" dir="ltr">								<!--<![endif]-->
+	<!-->			<html class="no-js" lang="en" dir="ltr">												<!--<![endif]-->
 <head>
 
 	<link rel="dns-prefetch" href="//ajax.googleapis.com" />
 	
-	<meta charset="utf-8" />
+	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title><?php 
 
 		// Build the title of the page
 
-		if (is_home()) {
+		if (is_home() || is_front_page()) {
 
 			// Home page
 			echo $siteTitle;
-			echo $titleSeperator;
-			echo $description;
 
-		} elseif (is_single()) {
+		} elseif (is_single() || is_page()) {
 
 			// Post or page
-			the_title();
+			single_post_title();
 			echo $titleSeperator;
 			echo $siteTitle;
+
+		} elseif (is_search()) {
+
+			// Search results page
+			echo 'Results for '.wp_specialchars($s);
+			pageNumber();
+			echo $titleSeperator;
+			echo $siteTitle;
+
+		} elseif (is_404()) {
+
+			// 404 Page
+			echo 'Page not found';
+			echo $titleSeperator;
+			echo $siteTitle;
+
+		} else {
+
+			// Everything else
+			echo $siteTitle;
+			wp_title(trim($titleSeperator)); 
+			pageNumber();
 
 		}
 	
@@ -78,15 +98,38 @@
 		var jsDebugging = true; 
 	</script>
 
+	<?php wp_head(); ?>
+
 </head>
 <body <?php body_class(); ?>>
 
 
 	<header role="banner" id="site-header">
 		<hgroup>
-			<h1><?php bloginfo('site-title'); ?></h1>
+			<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('site-title'); ?></a></h1>
 			<h2><?php bloginfo('description'); ?></h2>
 		</hgroup>
 		<nav role="navigation">
+			<?php
+				global $themeArgs;
+	
+				$argsMenu = array_merge($themeArgs['navigation'], array(
+					'menu'				=> 'Site Nav',
+					'theme_location'	=> 'header',
+				));
+
+				$menu = wp_nav_menu($argsMenu);
+
+				if (CACHE_NAV) {
+					// if we are caching then we want to remove relative class names to save
+					// confusion or errors when styling content
+					$menu = str_replace(' current_page_item', '', $menu);
+					$menu = str_replace(' current_page_ancestor', '', $menu);
+					$menu = str_replace(' current_page_parent', '', $menu);
+					echo $menu;
+				} else {
+					echo $menu;
+				}
+			?>
 		</nav>
 	</header>

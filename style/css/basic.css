@@ -86,10 +86,10 @@ figure {
  * Type
  *****************************************************************************/
 html {
-  font-size: 112.5%;
+  font-size: 100%;
   -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 112.5%;
-  -ms-text-size-adjust: 112.5%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   line-height: 1.5em;
   color: #404040;
 }
@@ -124,19 +124,19 @@ h6 small {
   color: #a6a6a6;
 }
 h1 {
-  font-size: 76px;
-  font-size: 4.222222222222222rem;
+  font-size: 68px;
+  font-size: 4.25rem;
 }
 h2 {
-  font-size: 47px;
-  font-size: 2.611111111111111rem;
+  font-size: 42px;
+  font-size: 2.625rem;
 }
 h3 {
-  font-size: 29px;
-  font-size: 1.6111111111111112rem;
+  font-size: 26px;
+  font-size: 1.625rem;
 }
 h4 {
-  font-size: 18px;
+  font-size: 16px;
   font-size: 1rem;
 }
 p {
@@ -144,7 +144,7 @@ p {
   margin: 0;
   text-align: justify;
   line-height: 1.5em;
-  font-size: 18px;
+  font-size: 16px;
   font-size: 1rem;
 }
 hr {
@@ -184,7 +184,7 @@ blockquote {
 }
 blockquote p {
   font-size: 20px;
-  font-size: 1.1111111111111112rem;
+  font-size: 1.25rem;
 }
 blockquote:before {
   color: #737373;
@@ -193,14 +193,14 @@ blockquote:before {
   margin-left: -0.75em;
   float: left;
   font-size: 75px;
-  font-size: 4.166666666666667rem;
+  font-size: 4.6875rem;
 }
 blockquote cite {
   display: block;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: right;
   font-size: 16px;
-  font-size: 0.8888888888888888rem;
+  font-size: 1rem;
 }
 small {
   font-size: 75%;
@@ -282,7 +282,7 @@ kbd,
 samp {
   font-family: 'Bitstream Vera Sans Mono', Courier, monospace;
   font-size: 18px;
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 code {
   background-color: #DDD;
@@ -393,7 +393,7 @@ select {
   -moz-background-clip: padding;
   border-radius: 2px;
   background-clip: padding-box;
-  font-size: 18px;
+  font-size: 16px;
   font-size: 1rem;
 }
 input.error,
@@ -432,8 +432,8 @@ label input {
 }
 select {
   width: 80%;
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
   padding: 4px;
 }
 select[multiple='multiple'] {

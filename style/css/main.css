@@ -86,10 +86,10 @@ figure {
  * Type
  *****************************************************************************/
 html {
-  font-size: 112.5%;
+  font-size: 100%;
   -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 112.5%;
-  -ms-text-size-adjust: 112.5%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   line-height: 1.5em;
   color: #404040;
 }
@@ -124,19 +124,19 @@ h6 small {
   color: #a6a6a6;
 }
 h1 {
-  font-size: 76px;
-  font-size: 4.222222222222222rem;
+  font-size: 68px;
+  font-size: 4.25rem;
 }
 h2 {
-  font-size: 47px;
-  font-size: 2.611111111111111rem;
+  font-size: 42px;
+  font-size: 2.625rem;
 }
 h3 {
-  font-size: 29px;
-  font-size: 1.6111111111111112rem;
+  font-size: 26px;
+  font-size: 1.625rem;
 }
 h4 {
-  font-size: 18px;
+  font-size: 16px;
   font-size: 1rem;
 }
 p {
@@ -144,7 +144,7 @@ p {
   margin: 0;
   text-align: justify;
   line-height: 1.5em;
-  font-size: 18px;
+  font-size: 16px;
   font-size: 1rem;
 }
 hr {
@@ -184,7 +184,7 @@ blockquote {
 }
 blockquote p {
   font-size: 20px;
-  font-size: 1.1111111111111112rem;
+  font-size: 1.25rem;
 }
 blockquote:before {
   color: #737373;
@@ -193,14 +193,14 @@ blockquote:before {
   margin-left: -0.75em;
   float: left;
   font-size: 75px;
-  font-size: 4.166666666666667rem;
+  font-size: 4.6875rem;
 }
 blockquote cite {
   display: block;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: right;
   font-size: 16px;
-  font-size: 0.8888888888888888rem;
+  font-size: 1rem;
 }
 small {
   font-size: 75%;
@@ -282,7 +282,7 @@ kbd,
 samp {
   font-family: 'Bitstream Vera Sans Mono', Courier, monospace;
   font-size: 18px;
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 code {
   background-color: #DDD;
@@ -393,7 +393,7 @@ select {
   -moz-background-clip: padding;
   border-radius: 2px;
   background-clip: padding-box;
-  font-size: 18px;
+  font-size: 16px;
   font-size: 1rem;
 }
 input.error,
@@ -432,8 +432,8 @@ label input {
 }
 select {
   width: 80%;
-  height: 30px;
-  line-height: 30px;
+  height: 28px;
+  line-height: 28px;
   padding: 4px;
 }
 select[multiple='multiple'] {
@@ -672,8 +672,75 @@ img.right {
   text-align: auto;
 }
 /******************************************************************************
+ * WP Captions
+ *****************************************************************************/
+.wp-caption {
+  margin: 20px auto;
+  background: #EEE;
+  border: 1px solid #CCC;
+  -webkit-border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px;
+  -moz-background-clip: padding;
+  border-radius: 5px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.wp-caption img {
+  margin: 5px;
+}
+.wp-caption-text {
+  text-align: center;
+}
+/******************************************************************************
+ * WP Alignments
+ *****************************************************************************/
+.aligncenter {
+  text-align: center;
+}
+li.categories li,
+li.tags li,
+li.categories ul,
+li.tags ul {
+  display: inline;
+}
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+#main {
+  width: 98%;
+  margin: 0 auto;
+}
+/******************************************************************************
  * Site Header
  *****************************************************************************/
+#site-header {
+  -webkit-border-radius: 0 0 15px 15px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0 0 15px 15px;
+  -moz-background-clip: padding;
+  border-radius: 0 0 15px 15px;
+  background-clip: padding-box;
+  background: #333;
+  padding: 20px;
+  margin: 0 0 20px;
+}
+#site-header h1,
+#site-header h2,
+#site-header a {
+  line-height: 1em;
+  color: #EFEFEF;
+  text-shadow: -1px -1px -1px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
 /******************************************************************************
  * Site Footer
  *****************************************************************************/
+#site-footer {
+  border-top: 1px solid #CCC;
+  padding: 0;
+  margin: 20px;
+}

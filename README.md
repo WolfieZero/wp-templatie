@@ -3,6 +3,7 @@ WP-Templatie
 
 A work in progress.
 
+If you want to make your own theme but not sure where to start then I suggest checking out [this tutorial on ThemeShaper](http://themeshaper.com/2009/06/22/wordpress-themes-templates-tutorial/)
 
 
 Changes
@@ -16,8 +17,14 @@ The initial commit to github
 
 To Do
 -----
-- comment.php
-- 
+- comments.php
+- functions.php
+- image.php
+- links.php
+- page.php
+- search.php
+- sidebar.php
+- tags.php
 
 
 

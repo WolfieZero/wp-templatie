@@ -1,70 +1,125 @@
 <?php 
-	/* 
-		Template Name: Single Post
-	*/
+/**
+ * The Template for displaying all single posts.
+ *
+ * @package		WordPress
+ * @subpackage	WP-Templatie
+ * @since		1.0
+ */
 
-	get_header(); 
-	the_post();
+global $themeArgs;
 
-	$category		= get_the_category($post->ID);			
-	$postTitle		= get_the_title();
-	$permalink		= get_permalink();
-	$commentsOpen	= comments_open();
-	$commentsCount	= $post->comment_count;
+get_header(); 
+the_post();
 
+$category		= get_the_category($post->ID);			
+$postTitle		= get_the_title();
+$permalink		= get_permalink();
+$commentsOpen	= comments_open();	// used twice
+$commentsCount	= $post->comment_count;
 ?>
 
 	<div role="main" id="main">	
-
-		<article class="hentry">
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<header>
 				<h1 class="post-title">
-					<a href="<?php echo $permalink; ?>" rel="bookmark">
-						<?php echo $postTitle; ?>
-					</a>
+					<a href="<?php echo $permalink; ?>" rel="bookmark"><?php echo $postTitle; ?></a>
 				</h1>
 			</header>
 			
 			<div class="entry-content">
-				<?php the_content(); ?>
+
+<?php the_content(); ?>
+
+<?php 
+	wp_link_pages(
+		array_merge(
+			$themeArgs['link_pages'], 
+			array(
+				// Edit theme-default values
+			)
+		)
+	); 
+?>
+
 			</div>
 
 			<footer>
-				<ul>
-					<li class="vcard author">
-						<span class="fn"><?php the_author_posts_link(); ?></span>
-					</li>
-					<li><?php
+				<ul class="post-meta"><?php
 
-						if ($commentsOpen) {
-							echo '<a href="'.$link.'#comments">';
+					// Display author vcard
+
+					if (!is_author()) {
+						// if we are on author.php then we display the vcard at the top of th apge
+						echo '<li class="vcard author">';
+							echo '<span class="fn">'.the_author_posts_link().'</span>';
+						echo '</li>';
+					}
+					
+
+					// Display when posted
+
+					echo '<li>';
+						echo __('Posted').' <data name="pubDate" value="'.get_the_time('Y-m-d').'">'.get_the_time('d-m-Y').'</data>'; 
+					echo '</li>';
+
+
+					// Display comment info
+
+					if (comments_open()) {
+						// no need to display if comments aren't open
+
+						echo '<li><ul>';
+						echo '<li><a href="'.$permalink.'#comments">';
 							
-							if ($commentsCount > 1)
-								echo $commentsCount.' Comments';
-							elseif ($commentsCount == 1)
-								echo $commentsCount.' Comment';
-							else
-								echo 'No Comments';
-						
-							echo '</a> |';
+						if ($commentsCount > 1) {
+							echo $commentsCount.' '.__('Comments');
+
+						} elseif ($commentsCount == 1) {
+							echo $commentsCount.' '.__('Comments');
 								
-							echo ' <a href="'.$link.'#add-comment">Add Comment</a> | ';
+						} else {
+							echo 'No Comments';
 						}
-							
-						echo $typeName.' posted <data name="pubDate" value="'.get_the_time('Y-m-d').'">'.get_the_time('d-m-Y').'</data>'; 
 
-					?></li>
-				</ul>
+						echo '</a></li>';
+						echo '<li><a href="'.$permalink.'#add-comment">'.__('Add Comment').'</a></li>';
+						echo '</ul></li>';
+					}
+
+
+					// Display categories
+
+					wp_list_categories(
+						array_merge(
+							$themeArgs['list_categories'], 
+							array(
+								// Edit theme-default values
+							)
+						)
+					);
+
+
+					// Display tags
+
+					the_tags('<li class="tags">Tags<ul><li>','</li><li>','</li></ul></li>');
+
+
+					// Display edit link for admins
+
+					edit_post_link(__('Edit'), '<li class="admin-edit">', '</li>');
+
+				?></ul>
 			</footer>
 
 			<?php
-				if ($commentsOpen) 
+				if ($commentsOpen) {
 					comments_template();
+				}
 			?>
 
 		</article>
-
 	</div>
 
 <?php get_footer(); ?>
